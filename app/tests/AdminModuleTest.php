@@ -6,13 +6,20 @@ class AdminModuleTest extends TestCase
     public function testModuleConfigExist()
     {
         $modulesConfig = Config::get('modules');
-        $this->assertNotEmpty($modulesConfig);
         $this->assertContains('admin', $modulesConfig);
     }
 
     public function testModelAutoload()
     {
         $this->assertTrue(class_exists('Admin\Admin'));
+    }
+
+    public function testRoutesIncluded()
+    {
+        $this->assertContains(
+            app_path().'\modules\admin\routes.php',
+            get_included_files()
+        );
     }
 
     public function testMainRouteResponse()

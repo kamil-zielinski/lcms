@@ -5,7 +5,7 @@ namespace Modules;
 /**
  * Sets every module defined in modules config as package
  */
-class ServiceProvider extends \Illuminate\Support\ServiceProvider {
+class ModulesServiceProvider extends \Illuminate\Support\ServiceProvider {
 
     public function boot()
     {
