@@ -1,2 +1,3 @@
 <?php
-Route::get('/admin', [ 'as' => 'login', 'uses' => 'Admin\AuthController@getLogin' ]);
+
+Route::get('admin', [ 'as' => 'adminLogin', 'uses' => 'Admin\AuthController@getLogin' ]);
