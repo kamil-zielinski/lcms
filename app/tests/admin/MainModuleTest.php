@@ -1,33 +1,27 @@
 <?php
 
-class AdminModuleTest extends TestCase
+namespace AdminTest;
+
+class MainModuleTest extends \TestCase
 {
 
     public function setUp()
     {
         parent::setUp();
         // Enable filters
-        Route::enableFilters();
+        \Route::enableFilters();
     }
 
     public function testModuleConfigExist()
     {
-        $modulesConfig = Config::get('modules');
+        $modulesConfig = \Config::get('modules');
         $this->assertContains('admin', $modulesConfig);
     }
 
     public function testModelAutoload()
     {
-        $this->assertTrue(class_exists('Admin\Admin'));
+        $this->assertTrue(class_exists('\Admin\Admin'));
     }
-
-/*    public function testRoutesIncluded()
-    {
-        $this->assertContains(
-            app_path().'\modules\admin\routes.php',
-            get_included_files()
-        );
-    }*/
 
     public function testMainRouteResponse()
     {
